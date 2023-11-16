@@ -54,7 +54,7 @@ int parse_l(char *buff, int line_num, int format)
 	const char *delim = "\n ";
 
 	if (buff == NULL)
-		err(4);
+		_err(4);
 
 	opcode = strtok(buff, delim);
 	if (opcode == NULL)
