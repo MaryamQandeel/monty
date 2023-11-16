@@ -143,11 +143,11 @@ void call_fun(op_func func, char *op, char *v, int ln, int format)
 			flag = -1;
 		}
 		if (v == NULL)
-			err(5, ln);
+			_err(5, ln);
 		for (i = 0; v[i] != '\0'; i++)
 		{
 			if (isdigit(v[i]) == 0)
-				err(5, ln);
+				_err(5, ln);
 		}
 		node = create_node(atoi(v) * flag);
 		if (format == 0)
