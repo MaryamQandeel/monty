@@ -21,7 +21,7 @@ void _mul(stack_t **stack, unsigned int l_num)
 
 
 /**
- * mod_nodes - Adds the top two elements of the stack.
+ * _mod - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @l_num: Interger representing the line number of of the opcode.
  */
