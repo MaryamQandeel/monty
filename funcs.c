@@ -11,9 +11,9 @@ void ofile(char *file_name)
 	FILE *fd = fopen(file_name, "r");
 
 	if (file_name == NULL || fd == NULL)
-		err(2, file_name);
+		_err(2, file_name);
 
-	read_file(fd);
+	rfile(fd);
 	fclose(fd);
 }
 
@@ -32,7 +32,7 @@ void rfile(FILE *fd)
 
 	for (l_num = 1; getline(&buff, &len, fd) != -1; l_num++)
 	{
-		format = parse_line(buff, l_num, format);
+		format = parse_l(buff, l_num, format);
 	}
 	free(buff);
 }
@@ -85,19 +85,19 @@ void find_func(char *opcode, char *value, int ln, int format)
 	int flag;
 
 	instruction_t func_list[] = {
-		{"push", add_to_stack},
-		{"pall", print_stack},
+		{"push", add_stack},
+		{"pall", p_stack},
 		{"pint", print_top},
 		{"pop", pop_top},
 		{"nop", nop},
-		{"swap", swap_nodes},
-		{"add", add_nodes},
-		{"sub", sub_nodes},
-		{"div", div_nodes},
-		{"mul", mul_nodes},
-		{"mod", mod_nodes},
-		{"pchar", print_char},
-		{"pstr", print_str},
+		{"swap", _swap},
+		{"add", _add},
+		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
+		{"pchar", print_c},
+		{"pstr", print_s},
 		{"rotl", rotl},
 		{"rotr", rotr},
 		{NULL, NULL}
